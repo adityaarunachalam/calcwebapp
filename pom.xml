@@ -56,19 +56,6 @@
                         </goals>
                     </execution>
                 </executions>
-                <configuration>
-                <!-- SonarQube server URL -->
-                <sonar.host.url>http://localhost:9000</sonar.host.url>
-
-                <!-- SonarQube project key and name -->
-                <sonar.projectKey>sample-java</sonar.projectKey>
-                <sonar.projectName>sample-java</sonar.projectName>
-                <sonar.login>sqp_95cce962c776d0a1c6e1f66701397835767dda46</sonar.login>
-
-                <!-- Additional SonarQube properties -->
-                <!-- For example, to exclude test files from analysis -->
-                <sonar.exclusions>**/test/**/*</sonar.exclusions>
-            </configuration>
             </plugin>
 
             <!-- PMD Plugin -->
@@ -76,6 +63,14 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
                 <version>3.14.0</version>
+                <executions>
+                    <execution>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>pmd</goal>
+                        </goals>
+                    </execution>
+                </executions>
                 <configuration>
                     <includeTests>true</includeTests>
                     <minimumTokens>10</minimumTokens>
@@ -86,14 +81,6 @@
                     </rulesets>
                     <failOnViolation>false</failOnViolation>
                 </configuration>
-                <executions>
-                    <execution>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>pmd</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
 
             <!-- Sonar Plugin -->
@@ -101,7 +88,27 @@
                 <groupId>org.sonarsource.scanner.maven</groupId>
                 <artifactId>sonar-maven-plugin</artifactId>
                 <version>3.7.0.1746</version>
-                <!-- Add Sonar configuration here -->
+                <executions>
+                    <execution>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sonar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <!-- SonarQube server URL -->
+                    <sonar.host.url>http://localhost:9000</sonar.host.url>
+
+                    <!-- SonarQube project key and name -->
+                    <sonar.projectKey>sample-java</sonar.projectKey>
+                    <sonar.projectName>sample-java</sonar.projectName>
+                    <sonar.login>sqp_95cce962c776d0a1c6e1f66701397835767dda46</sonar.login>
+
+                    <!-- Additional SonarQube properties -->
+                    <!-- For example, to exclude test files from analysis -->
+                    <sonar.exclusions>**/test/**/*</sonar.exclusions>
+                </configuration>
             </plugin>
         </plugins>
 
