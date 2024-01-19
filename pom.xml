@@ -87,12 +87,11 @@
                 </executions>
                 <configuration>
                     <!-- SonarQube server URL -->
-                    <sonar.host.url>http://localhost:9000</sonar.host.url>
+                    <sonar.host.url>http://192.168.1.73:9000</sonar.host.url>
 
                     <!-- SonarQube project key and name -->
-                    <sonar.projectKey>sample-java</sonar.projectKey>
-                    <sonar.projectName>sample-java</sonar.projectName>
-                    <sonar.login>sqp_95cce962c776d0a1c6e1f66701397835767dda46</sonar.login>
+                
+                    <sonar.login>sqqp_ecec42415ff800c873d592214783401d14734dad</sonar.login>
 
                     <!-- Additional SonarQube properties -->
                     <!-- For example, to exclude test files from analysis -->
